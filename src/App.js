@@ -7,7 +7,7 @@ import LandingPortal from './LandingPortal';
 
 function App() {
   const [message, setMessage] = useState('');
-  const [sentMessage, setSentMessage] = useState('');
+  //const [sentMessage, setSentMessage] = useState('');
   const [mood, setMood] = useState('');
   const [modelsLoaded, setModelsLoaded] = useState(false);
   const [voiceTranscript, setVoiceTranscript] = useState('');
