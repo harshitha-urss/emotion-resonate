@@ -7,6 +7,7 @@ module.exports = {
         crypto: require.resolve('crypto-browserify'),
         stream: require.resolve('stream-browserify'),
         fs: false,
+        vm: require.resolve('vm-browserify'), // ADD THIS LINE
       };
       webpackConfig.plugins = [
         ...(webpackConfig.plugins || []),
