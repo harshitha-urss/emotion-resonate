@@ -6,6 +6,7 @@ import * as faceapi from 'face-api.js';
 import LandingPortal from './LandingPortal';
 
 
+
 function App() {
   const [message, setMessage] = useState('');
   const [sentMessage, setSentMessage] = useState('');
@@ -20,13 +21,16 @@ function App() {
   const [loading, setLoading] = useState(false);
 
 
+
   const [role, setRole] = useState(""); // "", "user", "admin"
   const [adminLoggedIn, setAdminLoggedIn] = useState(false);
   const [adminPasswordInput, setAdminPasswordInput] = useState('');
 
 
+
   const sentiment = new Sentiment();
   const webcamRef = useRef(null);
+
 
 
   const moodToMessage = {
@@ -68,6 +72,7 @@ function App() {
   }
 
 
+
   useEffect(() => {
     if (role === "user") {
       const savedMood = localStorage.getItem('mood');
@@ -77,12 +82,14 @@ function App() {
       }
     }
   }, [role]);
+  
   useEffect(() => {
     if (role === "user" && mood) {
       localStorage.setItem('mood', mood);
       localStorage.setItem(`userMood_${Date.now()}`, mood);
     }
   }, [mood, role]);
+
 
 
   function saveResult() {
@@ -97,6 +104,7 @@ function App() {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
   }
+  
   function shareResult() {
     const shareData = {
       title: 'My Emotion Resonate Result',
@@ -109,27 +117,42 @@ function App() {
       alert('Result copied to clipboard!');
     }
   }
+
+  // ✅ FIXED: Load models with TensorFlow.js backend initialization
   useEffect(() => {
     setLoading(true);
-    Promise.all([
-      faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
-      faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-      faceapi.nets.mtcnn.loadFromUri('/models'),
-      faceapi.nets.faceLandmark68TinyNet.loadFromUri('/models'),
-      faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-      faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-      faceapi.nets.faceExpressionNet.loadFromUri('/models'),
-      faceapi.nets.ageGenderNet.loadFromUri('/models'),
-    ])
-      .then(() => {
+    
+    const loadModels = async () => {
+      try {
+        // Wait for TensorFlow.js backend to initialize
+        await faceapi.tf.ready();
+        console.log('✅ TensorFlow.js backend ready');
+        
+        // Now load all face-api models
+        await Promise.all([
+  faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
+  faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
+  faceapi.nets.mtcnn.loadFromUri('/models'),
+  faceapi.nets.faceLandmark68TinyNet.loadFromUri('/models'),
+  faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
+  faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
+  faceapi.nets.faceExpressionNet.loadFromUri('/models'),
+  faceapi.nets.ageGenderNet.loadFromUri('/models'),
+]);
+     
         setModelsLoaded(true);
         setLoading(false);
-      })
-      .catch(() => {
+        console.log('✅ All face-api models loaded successfully!');
+      } catch (error) {
+        console.error('❌ Error loading models:', error);
         setModelsLoaded(false);
         setLoading(false);
-      });
+      }
+    };
+    
+    loadModels();
   }, []);
+
 
 
   // LANDING COLOURFUL PAGE
@@ -148,6 +171,7 @@ function App() {
       </div>
     );
   }
+  
   // ADMIN LOGIN
   if (role === "admin" && !adminLoggedIn) {
     return (
@@ -183,6 +207,7 @@ function App() {
       </div>
     );
   }
+  
   // ADMIN DASHBOARD
   if (role === "admin" && adminLoggedIn) {
     let allMoods = [];
@@ -215,8 +240,10 @@ function App() {
       </div>
     );
   }
+  
   // USER MODE NORMAL APP
   const consolingMessage = moodToMessage[mood] || "I'm here for you, no matter what you're feeling.";
+  
   const detectFacialEmotion = async () => {
     if (webcamRef.current && webcamRef.current.video.readyState === 4) {
       setLoading(true);
@@ -247,6 +274,7 @@ function App() {
       setLoading(false);
     }
   };
+  
   const analyzeFacialEmotionPhoto = async (imgSrc) => {
     setLoading(true);
     setShowFinalSupport(false);
@@ -276,6 +304,7 @@ function App() {
       };
     });
   };
+  
   function startVoiceListening() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
@@ -304,6 +333,7 @@ function App() {
     };
     recognition.start();
   }
+  
   const handleRestart = () => {
     setMessage('');
     setSentMessage('');
@@ -318,6 +348,7 @@ function App() {
   };
 
 
+
   // --- User Main App ---
   return (
     <div className="App">
@@ -328,7 +359,9 @@ function App() {
       </button>
 
 
+
       {!mode && <LandingPortal onSelect={setMode} />}
+
 
 
       {/* TEXT MODE */}
@@ -370,6 +403,7 @@ function App() {
           </div>
         </div>
       )}
+
 
 
       {/* VIDEO MODE */}
@@ -425,11 +459,13 @@ function App() {
           </div>
 
 
+
           {loading && !showFinalSupport && (
             <div className="loading-message">
               Face analysis in progress, please wait...
             </div>
           )}
+
 
 
           {showFinalSupport && (
@@ -447,6 +483,7 @@ function App() {
           )}
         </div>
       )}
+
 
 
       {/* VOICE MODE */}
@@ -474,6 +511,7 @@ function App() {
           </div>
         </div>
       )}
+      
       {/* COPYRIGHT FOOTER on all user pages */}
       <span style={{ display: "none" }}>{sentMessage}</span>
       <div className="footer-signature">
@@ -482,4 +520,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
