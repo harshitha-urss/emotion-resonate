@@ -5,6 +5,7 @@ import ReactWebcam from 'react-webcam';
 import * as faceapi from 'face-api.js';
 import LandingPortal from './LandingPortal';
 
+
 function App() {
   const [message, setMessage] = useState('');
   const [sentMessage, setSentMessage] = useState('');
@@ -18,12 +19,15 @@ function App() {
   const [capturedImg, setCapturedImg] = useState(null);
   const [loading, setLoading] = useState(false);
 
+
   const [role, setRole] = useState(""); // "", "user", "admin"
   const [adminLoggedIn, setAdminLoggedIn] = useState(false);
   const [adminPasswordInput, setAdminPasswordInput] = useState('');
 
+
   const sentiment = new Sentiment();
   const webcamRef = useRef(null);
+
 
   const moodToMessage = {
     happy: "Keep smiling! Your positivity encourages others.",
@@ -37,7 +41,7 @@ function App() {
     frustration: "Take a small break. Remember, setbacks are part of growth.",
     mild_fear: "If you're worried, talk it out or take it slow. You're stronger than you think.",
     neutral: "Hope your day is calm. Balance is good for the mind and body.",
-    smiling: "That smile can brighten anyone’s day—including yours!",
+    smiling: "That smile can brighten anyone's day—including yours!",
     surprised: "Surprises can be exciting or shocking. Embrace new possibilities!"
   };
   const moodToAvatar = {
@@ -63,6 +67,7 @@ function App() {
     }
   }
 
+
   useEffect(() => {
     if (role === "user") {
       const savedMood = localStorage.getItem('mood');
@@ -78,6 +83,7 @@ function App() {
       localStorage.setItem(`userMood_${Date.now()}`, mood);
     }
   }, [mood, role]);
+
 
   function saveResult() {
     const result = `Mood: ${mood}\nMessage: ${moodToMessage[mood] || ""}`;
@@ -124,6 +130,7 @@ function App() {
         setLoading(false);
       });
   }, []);
+
 
   // LANDING COLOURFUL PAGE
   if (!role) {
@@ -310,6 +317,7 @@ function App() {
     localStorage.clear();
   };
 
+
   // --- User Main App ---
   return (
     <div className="App">
@@ -319,7 +327,9 @@ function App() {
         Switch Role
       </button>
 
+
       {!mode && <LandingPortal onSelect={setMode} />}
+
 
       {/* TEXT MODE */}
       {mode === "text" && (
@@ -360,6 +370,7 @@ function App() {
           </div>
         </div>
       )}
+
 
       {/* VIDEO MODE */}
       {mode === "video" && (
@@ -413,11 +424,13 @@ function App() {
             )}
           </div>
 
+
           {loading && !showFinalSupport && (
             <div className="loading-message">
               Face analysis in progress, please wait...
             </div>
           )}
+
 
           {showFinalSupport && (
             <div className={`feedback-card ${mood}`}>
@@ -434,6 +447,7 @@ function App() {
           )}
         </div>
       )}
+
 
       {/* VOICE MODE */}
       {mode === "voice" && (
@@ -461,6 +475,7 @@ function App() {
         </div>
       )}
       {/* COPYRIGHT FOOTER on all user pages */}
+      <span style={{ display: "none" }}>{sentMessage}</span>
       <div className="footer-signature">
         &copy; {new Date().getFullYear()} &mdash; Created by HARSHITHA M V
       </div>
