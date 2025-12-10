@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    text-align: center;
+}
+
+.hero {
+    background: linear-gradient(135deg, #00eaff, #00ff9c);
+    padding: 80px 20px;
+    color: black;
+}
+
+.hero h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #008cff;
+    padding: 12px 25px;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+h2 {
+    color: #00eaff;
+    margin-bottom: 15px;
+}
+
+.tech {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #111;
+    padding: 20px;
+    margin-top: 30px;
+}
