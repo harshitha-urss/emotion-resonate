@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# 🎭 Emotion Resonate — Mood-Triggered AI Companion
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Emotion Resonate is an AI-powered application that detects human emotions through **Text, Face, and Voice inputs** and provides **instant emotional feedback, empathy, and support** using a smart avatar-based system.  
+All processing runs locally in the browser to ensure **complete privacy and data security**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌐 Live Demo
+ https://ai-face-emotion-resonate.netlify.app/
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🎥 Project Demo Video
+ https://youtu.be/E_-BqqesH2s
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## What is Emotion Resonate?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Emotion Resonate helps users understand their emotional state in real time by analyzing:
+- ✍ **Text input**
+- 📷 **Facial expressions**
+- 🎤 **Voice tone**
 
-### `npm run build`
+It then:
+- Detects the emotion
+- Displays a matching **emotional avatar**
+- Shows a **supportive response**
+- Ensures **no data ever leaves the device**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ How It Works
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. User selects an analysis mode: **Text, Face, or Voice**
+2. Input is captured locally
+3. AI model processes the input
+4. Emotion is classified (Happy, Sad, Angry, Neutral, etc.)
+5. Matching supportive response & avatar is displayed
+6. No cloud upload — **100% privacy-first**
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-  Real-time emotion detection
+-  Text, Face & Voice analysis
+-  Mood-triggered emotional avatar
+-  Supportive AI feedback
+-  Runs completely in the browser
+-  No data storage, no cloud tracking
+-  Responsive UI for mobile & desktop
+-  Role switching between modes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Tech Stack
 
-## Learn More
+- **Frontend:** React.js
+- **AI & ML:** TensorFlow.js, Pre-trained emotion models
+- **Face Detection:** Web camera + browser ML
+- **Voice Processing:** Web Speech API
+- **Styling:** HTML, CSS, JavaScript
+- **Deployment:** Netlify
+- **Version Control:** GitHub
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Use Cases
 
-### Code Splitting
+- Mental health self-monitoring
+- Human-computer interaction research
+- Smart wellness assistants
+- Emotion-aware chat systems
+- Educational AI experiments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Results
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Accurate real-time emotion prediction
+- Works smoothly on standard laptops and mobiles
+- Fast response with no backend delay
+- High privacy & reliability
+- Stable facial and voice emotion tracking
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 👤 Project Lead
 
-### Advanced Configuration
+- **Name:** Harshitha M V  
+- **Role:** AI & ML Engineer  
+- **Email:** harshithamv2642004@gmail.com  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🔗 GitHub Repository
+ https://github.com/harshitha-urss/emotion-resonate
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📝 License
+This project is open-source and free to use for educational and research purposes.
