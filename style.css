@@ -6,6 +6,7 @@ body {
     text-align: center;
 }
 
+/* HERO */
 .hero {
     background: linear-gradient(135deg, #00eaff, #00ff9c);
     padding: 80px 20px;
@@ -17,6 +18,7 @@ body {
     font-weight: bold;
 }
 
+/* BUTTON */
 .btn {
     background-color: #008cff;
     padding: 12px 25px;
@@ -26,22 +28,54 @@ body {
     font-size: 18px;
     margin-top: 20px;
     display: inline-block;
+    transition: 0.3s;
 }
 
+.btn:hover {
+    background-color: #00eaff;
+    color: black;
+}
+
+/* SECTIONS */
 section {
     padding: 40px 20px;
 }
 
+/* HEADINGS */
 h2 {
     color: #00eaff;
     margin-bottom: 15px;
 }
 
+/* 🔥 REMOVE BULLETS + CENTER PROPERLY */
+ul {
+    list-style: none;        /* removes dots */
+    padding: 0;              /* removes left space */
+    margin: 0 auto;
+    max-width: 700px;        /* keeps content centered nicely */
+}
+
+/* LIST ITEMS */
+ul li {
+    margin: 10px 0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* OPTIONAL: Add stylish check icon instead of dots */
+ul li::before {
+    content: "✔ ";
+    color: #00eaff;
+    font-weight: bold;
+}
+
+/* TECH STACK */
 .tech {
     font-size: 20px;
     margin-top: 10px;
 }
 
+/* FOOTER */
 footer {
     background-color: #111;
     padding: 20px;
