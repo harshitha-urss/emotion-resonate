@@ -5,7 +5,7 @@ All processing runs locally in the browser to ensure **complete privacy and data
 
 ---
 
-## 🌐 Live Demo
+## Live Demo
  https://ai-face-emotion-resonate.netlify.app/
 
 ---
@@ -30,7 +30,7 @@ It then:
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 1. User selects an analysis mode: **Text, Face, or Voice**
 2. Input is captured locally
@@ -86,7 +86,7 @@ It then:
 
 ---
 
-## 👤 Project Lead
+## Project Lead
 
 - **Name:** Harshitha M V  
 - **Role:** AI & ML Engineer  
@@ -99,5 +99,5 @@ It then:
 
 ---
 
-## 📝 License
+## License
 This project is open-source and free to use for educational and research purposes.
