@@ -94,9 +94,11 @@ section p {
 ================================ */
 
 ul {
+    list-style: none;
+    width: fit-content;
     max-width: 700px;
     margin: 15px auto 0;
-    padding-left: 25px;
+    padding: 0;
     text-align: left;
 }
 
@@ -105,7 +107,6 @@ ul li {
     font-size: 17px;
     line-height: 1.6;
 }
-
 
 /* ================================
    VIDEO
